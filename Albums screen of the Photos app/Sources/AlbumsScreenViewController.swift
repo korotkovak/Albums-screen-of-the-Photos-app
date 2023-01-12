@@ -13,8 +13,9 @@ class AlbumsScreenViewController: UIViewController {
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        //        collectionView.delegate = self
-        //        collectionView.dataSource = self
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
 
@@ -44,18 +45,75 @@ class AlbumsScreenViewController: UIViewController {
         }
     }
 
+    // MARK: - CollectionViewLayout
+
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { section, _ in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2),
-                                                  heightDimension: .fractionalWidth(0.2))
-            let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                   heightDimension: .fractionalHeight(1))
-            let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: layoutItem, count: 5)
+            switch section {
+            case 0:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10)
 
-            let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-            return sectionLayout
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
+                                                       heightDimension: .fractionalWidth(1 / 1.7 * 2))
+                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 2)
+
+                let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 10)
+                layoutSection.orthogonalScrollingBehavior = .groupPaging
+
+                return layoutSection
+            default:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
+                                                       heightDimension: .fractionalWidth(1 / 1.7 * 2))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
+
+                let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 10)
+                layoutSection.orthogonalScrollingBehavior = .continuous
+
+                return layoutSection
+            }
+
         }
+    }
+}
+
+// MARK: - Collection Setup
+
+extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return ModelForAlbums.model[section].count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        switch indexPath.section {
+        case 0:
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as! PhotoCell
+            item.configuration(model: ModelForAlbums.model[indexPath.section][indexPath.item])
+            return item
+        default:
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as! PhotoCell
+            item.configuration(model: ModelForAlbums.model[indexPath.section][indexPath.item])
+            return item
+        }
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return ModelForAlbums.model.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

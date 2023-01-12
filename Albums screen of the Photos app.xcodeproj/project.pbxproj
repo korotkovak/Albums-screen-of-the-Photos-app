@@ -13,6 +13,8 @@
 		C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */; };
 		C11EBC21296FEBA40084052F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C11EBC20296FEBA40084052F /* SnapKit */; };
 		C11EBC23296FEF250084052F /* ModelForAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC22296FEF250084052F /* ModelForAlbums.swift */; };
+		C11EBC25297024D60084052F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC24297024D60084052F /* PhotoCell.swift */; };
+		C11EBC27297024EF0084052F /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC26297024EF0084052F /* TableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		C11EBC14296FE9670084052F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsScreenViewController.swift; sourceTree = "<group>"; };
 		C11EBC22296FEF250084052F /* ModelForAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForAlbums.swift; sourceTree = "<group>"; };
+		C11EBC24297024D60084052F /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		C11EBC26297024EF0084052F /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				C11EBC1C296FEA860084052F /* App */,
+				C11EBC29297025020084052F /* Model */,
+				C11EBC28297024F40084052F /* CustomCell */,
 				C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */,
-				C11EBC22296FEF250084052F /* ModelForAlbums.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -88,6 +93,23 @@
 				C11EBC08296FE9650084052F /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		C11EBC28297024F40084052F /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC24297024D60084052F /* PhotoCell.swift */,
+				C11EBC26297024EF0084052F /* TableCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		C11EBC29297025020084052F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC22296FEF250084052F /* ModelForAlbums.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,7 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11EBC27297024EF0084052F /* TableCell.swift in Sources */,
 				C11EBC07296FE9650084052F /* AppDelegate.swift in Sources */,
+				C11EBC25297024D60084052F /* PhotoCell.swift in Sources */,
 				C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */,
 				C11EBC09296FE9650084052F /* SceneDelegate.swift in Sources */,
 				C11EBC23296FEF250084052F /* ModelForAlbums.swift in Sources */,
