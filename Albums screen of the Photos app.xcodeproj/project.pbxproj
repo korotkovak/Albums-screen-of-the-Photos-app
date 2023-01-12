@@ -9,21 +9,18 @@
 /* Begin PBXBuildFile section */
 		C11EBC07296FE9650084052F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC06296FE9650084052F /* AppDelegate.swift */; };
 		C11EBC09296FE9650084052F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC08296FE9650084052F /* SceneDelegate.swift */; };
-		C11EBC0B296FE9650084052F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC0A296FE9650084052F /* ViewController.swift */; };
-		C11EBC0E296FE9650084052F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11EBC0C296FE9650084052F /* Main.storyboard */; };
 		C11EBC10296FE9670084052F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11EBC0F296FE9670084052F /* Assets.xcassets */; };
-		C11EBC13296FE9670084052F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11EBC11296FE9670084052F /* LaunchScreen.storyboard */; };
+		C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */; };
+		C11EBC21296FEBA40084052F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C11EBC20296FEBA40084052F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C11EBC03296FE9650084052F /* Albums screen of the Photos app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Albums screen of the Photos app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C11EBC06296FE9650084052F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C11EBC08296FE9650084052F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C11EBC0A296FE9650084052F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C11EBC0D296FE9650084052F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C11EBC0F296FE9670084052F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C11EBC12296FE9670084052F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C11EBC14296FE9670084052F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11EBC21296FEBA40084052F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +54,37 @@
 		C11EBC05296FE9650084052F /* Albums screen of the Photos app */ = {
 			isa = PBXGroup;
 			children = (
-				C11EBC06296FE9650084052F /* AppDelegate.swift */,
-				C11EBC08296FE9650084052F /* SceneDelegate.swift */,
-				C11EBC0A296FE9650084052F /* ViewController.swift */,
-				C11EBC0C296FE9650084052F /* Main.storyboard */,
-				C11EBC0F296FE9670084052F /* Assets.xcassets */,
-				C11EBC11296FE9670084052F /* LaunchScreen.storyboard */,
-				C11EBC14296FE9670084052F /* Info.plist */,
+				C11EBC1A296FEA5A0084052F /* Resources */,
+				C11EBC1B296FEA6F0084052F /* Sources */,
 			);
 			path = "Albums screen of the Photos app";
+			sourceTree = "<group>";
+		};
+		C11EBC1A296FEA5A0084052F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC0F296FE9670084052F /* Assets.xcassets */,
+				C11EBC14296FE9670084052F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C11EBC1B296FEA6F0084052F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC1C296FEA860084052F /* App */,
+				C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C11EBC1C296FEA860084052F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC06296FE9650084052F /* AppDelegate.swift */,
+				C11EBC08296FE9650084052F /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +103,9 @@
 			dependencies = (
 			);
 			name = "Albums screen of the Photos app";
+			packageProductDependencies = (
+				C11EBC20296FEBA40084052F /* SnapKit */,
+			);
 			productName = "Albums screen of the Photos app";
 			productReference = C11EBC03296FE9650084052F /* Albums screen of the Photos app.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +134,9 @@
 				Base,
 			);
 			mainGroup = C11EBBFA296FE9650084052F;
+			packageReferences = (
+				C11EBC1F296FEBA40084052F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C11EBC04296FE9650084052F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C11EBC13296FE9670084052F /* LaunchScreen.storyboard in Resources */,
 				C11EBC10296FE9670084052F /* Assets.xcassets in Resources */,
-				C11EBC0E296FE9650084052F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C11EBC0B296FE9650084052F /* ViewController.swift in Sources */,
 				C11EBC07296FE9650084052F /* AppDelegate.swift in Sources */,
+				C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */,
 				C11EBC09296FE9650084052F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C11EBC0C296FE9650084052F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C11EBC0D296FE9650084052F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C11EBC11296FE9670084052F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C11EBC12296FE9670084052F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C11EBC15296FE9670084052F /* Debug */ = {
@@ -289,12 +294,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD67T552T3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Albums screen of the Photos app/Info.plist";
+				INFOPLIST_FILE = "Albums screen of the Photos app/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +307,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Albums-screen-of-the-Photos-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +325,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KD67T552T3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Albums screen of the Photos app/Info.plist";
+				INFOPLIST_FILE = "Albums screen of the Photos app/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +338,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.Albums-screen-of-the-Photos-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +369,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C11EBC1F296FEBA40084052F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C11EBC20296FEBA40084052F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C11EBC1F296FEBA40084052F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C11EBBFB296FE9650084052F /* Project object */;
 }
