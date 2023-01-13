@@ -7,6 +7,57 @@
 
 import UIKit
 
+fileprivate enum Constants {
+    static let title = "Albums"
+    static let headerTitleLabelZero = "My Albums"
+    static let headerTitleLabelOne = "Shared Albums"
+    static let headerTitleLabelTwo = "Media Types"
+    static let headerTitleLabelThree = "Utilities"
+    static let headerDescriptionLabel = "See All"
+}
+
+fileprivate enum Constraits {
+    // Constraits Header
+    static let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                                heightDimension: .estimated(50))
+    // Constraits Section Zero
+    static let itemSizeSectionZero = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalHeight(1))
+    static let layoutItemSectionZero = NSDirectionalEdgeInsets(top: 0,
+                                                               leading: 0,
+                                                               bottom: 20,
+                                                               trailing: 10)
+    static let groupSizeSectionZero = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
+                                                             heightDimension: .estimated(485))
+    static let layoutSectionZero = NSDirectionalEdgeInsets(top: 0,
+                                                           leading: 20,
+                                                           bottom: 20,
+                                                           trailing: 10)
+    // Constraits Section One
+    static let itemSizeSectionOne = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                           heightDimension: .fractionalHeight(1))
+    static let layoutItemSectionOne = NSDirectionalEdgeInsets(top: 0,
+                                                              leading: 0,
+                                                              bottom: 20,
+                                                              trailing: 10)
+
+    static let groupSizeSectionOne = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
+                                                            heightDimension: .estimated(250))
+    static let layoutSectionOne = NSDirectionalEdgeInsets(top: 0,
+                                                          leading: 20,
+                                                          bottom: 10,
+                                                          trailing: 10)
+    // Constraits Section Default
+    static let itemSizeSectionDefault = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                               heightDimension: .fractionalHeight(1.0))
+    static let groupSizeSectionDefault = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                                heightDimension: .absolute(50))
+    static let layoutSectionDefault = NSDirectionalEdgeInsets(top: 0,
+                                                              leading: 20,
+                                                              bottom: 30,
+                                                              trailing: 10)
+}
+
 final class AlbumsScreenViewController: UIViewController {
 
     // MARK: Outlets
@@ -37,7 +88,7 @@ final class AlbumsScreenViewController: UIViewController {
     // MARK: - Setup
 
     private func setupView() {
-        title = "Albums"
+        title = Constants.title
         navigationController?.navigationBar.prefersLargeTitles = true
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                      target: self, action: nil)
@@ -61,29 +112,20 @@ final class AlbumsScreenViewController: UIViewController {
 
             switch section {
             case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .fractionalHeight(1))
+                let itemSize = Constraits.itemSizeSectionZero
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                                   leading: 0,
-                                                                   bottom: 20,
-                                                                   trailing: 10)
+                layoutItem.contentInsets = Constraits.layoutItemSectionZero
 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
-                                                       heightDimension: .estimated(485))
+                let groupSize = Constraits.groupSizeSectionZero
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
                                                                    subitem: layoutItem,
                                                                    count: 2)
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                                      leading: 20,
-                                                                      bottom: 20,
-                                                                      trailing: 10)
+                layoutSection.contentInsets = Constraits.layoutSectionZero
                 layoutSection.orthogonalScrollingBehavior = .groupPaging
 
-                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                                     heightDimension: .estimated(50))
+                let layoutSectionHeaderSize = Constraits.layoutSectionHeaderSize
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: layoutSectionHeaderSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
@@ -93,28 +135,19 @@ final class AlbumsScreenViewController: UIViewController {
 
                 return layoutSection
             case 1:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .fractionalHeight(1))
+                let itemSize = Constraits.itemSizeSectionOne
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                                   leading: 0,
-                                                                   bottom: 20,
-                                                                   trailing: 10)
+                layoutItem.contentInsets = Constraits.layoutItemSectionOne
 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.15),
-                                                       heightDimension: .estimated(250))
+                let groupSize = Constraits.groupSizeSectionOne
                 let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                      subitems: [layoutItem])
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                                      leading: 20,
-                                                                      bottom: 10,
-                                                                      trailing: 10)
+                layoutSection.contentInsets = Constraits.layoutSectionOne
                 layoutSection.orthogonalScrollingBehavior = .continuous
 
-                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                                     heightDimension: .estimated(50))
+                let layoutSectionHeaderSize = Constraits.layoutSectionHeaderSize
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: layoutSectionHeaderSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
@@ -124,23 +157,17 @@ final class AlbumsScreenViewController: UIViewController {
 
                 return layoutSection
             default:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0))
+                let itemSize = Constraits.itemSizeSectionDefault
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .absolute(50))
+                let groupSize = Constraits.groupSizeSectionDefault
                 let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                      subitems: [layoutItem])
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                                      leading: 20,
-                                                                      bottom: 30,
-                                                                      trailing: 10)
+                layoutSection.contentInsets = Constraits.layoutSectionDefault
 
-                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                                     heightDimension: .estimated(50))
+                let layoutSectionHeaderSize = Constraits.layoutSectionHeaderSize
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: layoutSectionHeaderSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
@@ -162,6 +189,10 @@ extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionVi
         return ModelForAlbums.model[section].count
     }
 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return ModelForAlbums.model.count
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch indexPath.section {
@@ -176,34 +207,26 @@ extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionVi
         }
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return ModelForAlbums.model.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         switch indexPath.section {
         case 0:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
-            header.titleLabel.text = "My Albums"
-            header.descriptionLabel.text = "See All"
+            header.titleLabel.text = Constants.headerTitleLabelZero
+            header.descriptionLabel.text = Constants.headerDescriptionLabel
             return header
         case 1:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
-            header.titleLabel.text = "Shared Albums"
-            header.descriptionLabel.text = "See All"
+            header.titleLabel.text = Constants.headerTitleLabelOne
+            header.descriptionLabel.text = Constants.headerDescriptionLabel
             return header
         case 2:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
-            header.titleLabel.text = "Media Types"
+            header.titleLabel.text = Constants.headerTitleLabelTwo
             return header
         default:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
-            header.titleLabel.text = "Utilities"
+            header.titleLabel.text = Constants.headerTitleLabelThree
             return header
         }
     }

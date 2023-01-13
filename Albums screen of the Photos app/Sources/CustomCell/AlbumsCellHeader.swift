@@ -7,30 +7,41 @@
 
 import UIKit
 
+fileprivate enum Constants {
+    static let identifier = "AlbumsCellHeader"
+    static let error = "ERROR"
+}
+
+fileprivate enum Constraits {
+    static let descriptionLabelRight = 10
+    static let separatorViewRight = 10
+    static let separatorViewHeight = 0.5
+}
+
 class AlbumsCellHeader: UICollectionReusableView {
     
-    static let identifier = "AlbumsCellHeader"
+    static let identifier = Constants.identifier
     
     // MARK: - Outlets
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 22, weight: .bold))
+        label.font = Fonts.boldOfSize22
         return label
     }()
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 16))
+        label.font = Fonts.regularOfSize16
         label.lineBreakMode = .byTruncatingTail
-        label.textColor = .systemBlue
+        label.textColor = Colors.systemBlue
         label.textAlignment = .right
         return label
     }()
 
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = Colors.lightGray
         return view
     }()
 
@@ -43,7 +54,7 @@ class AlbumsCellHeader: UICollectionReusableView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("ERROR")
+        fatalError(Constants.error)
     }
 
     // MARK: - Setup
@@ -55,22 +66,21 @@ class AlbumsCellHeader: UICollectionReusableView {
     }
 
     private func setupLayout() {
-
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(self)
             make.centerY.equalTo(self)
         }
 
         descriptionLabel.snp.makeConstraints { make in
-            make.right.equalTo(self).offset(-10)
+            make.right.equalTo(self).offset(-Constraits.descriptionLabelRight)
             make.centerY.equalTo(self)
         }
 
         separatorView.snp.makeConstraints { make in
             make.left.equalTo(self)
-            make.right.equalTo(self).offset(10)
+            make.right.equalTo(self).offset(Constraits.separatorViewRight)
             make.top.equalTo(self)
-            make.height.equalTo(0.5)
+            make.height.equalTo(Constraits.separatorViewHeight)
         }
     }
 

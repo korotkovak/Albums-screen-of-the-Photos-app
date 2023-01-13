@@ -7,29 +7,48 @@
 
 import UIKit
 
+fileprivate enum Constants {
+    static let identifier = "PhotoCell"
+    static let error = "ERROR"
+    static let imageCornerRadius: CGFloat = 5
+    static let imageSmallCornerRadius: CGFloat = 18
+}
+
+fileprivate enum Constraits {
+    static let imageHeight = 180
+    static let titleLabelTop = 5
+
+    static let iconHeightWidth = 24
+    static let iconLeft = 5
+    static let iconBottom = 3
+
+    static let imageSmallHeightWidth = 35
+    static let imageSmallRightBottom = 7
+}
+
 final class PhotoCell: UICollectionViewCell {
     
-    static let identifier = "PhotoCell"
+    static let identifier = Constants.identifier
 
     // MARK: - Outlets
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 16))
+        label.font = Fonts.regularOfSize16
         return label
     }()
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 16))
+        label.font = Fonts.regularOfSize16
         label.lineBreakMode = .byTruncatingTail
-        label.textColor = .gray
+        label.textColor = Colors.gray
         return label
     }()
 
     private let image: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = Constants.imageCornerRadius
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -38,7 +57,7 @@ final class PhotoCell: UICollectionViewCell {
     private let icon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .white
+        imageView.tintColor = Colors.white
         return imageView
     }()
 
@@ -46,8 +65,8 @@ final class PhotoCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 18
-        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.cornerRadius = Constants.imageSmallCornerRadius
+        imageView.layer.borderColor = Colors.white.cgColor
         return imageView
     }()
 
@@ -61,7 +80,7 @@ final class PhotoCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("ERROR")
+        fatalError(Constants.error)
     }
 
     // MARK: - Setup
@@ -75,14 +94,13 @@ final class PhotoCell: UICollectionViewCell {
     }
 
     private func setupLayout() {
-
         image.snp.makeConstraints { make in
             make.left.top.right.equalTo(contentView)
-            make.height.equalTo(180)
+            make.height.equalTo(Constraits.imageHeight)
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(image.snp.bottom).offset(5)
+            make.top.equalTo(image.snp.bottom).offset(Constraits.titleLabelTop)
             make.left.equalTo(contentView)
         }
 
@@ -93,15 +111,14 @@ final class PhotoCell: UICollectionViewCell {
         }
 
         icon.snp.makeConstraints { make in
-            make.height.width.equalTo(24)
-            make.left.equalTo(image).offset(5)
-            make.bottom.equalTo(image).offset(-3)
+            make.height.width.equalTo(Constraits.iconHeightWidth)
+            make.left.equalTo(image).offset(Constraits.iconLeft)
+            make.bottom.equalTo(image).offset(-Constraits.iconBottom)
         }
 
         imageSmall.snp.makeConstraints { make in
-            make.height.width.equalTo(35)
-            make.right.equalTo(image).offset(-7)
-            make.bottom.equalTo(image).offset(-7)
+            make.height.width.equalTo(Constraits.imageSmallHeightWidth)
+            make.right.bottom.equalTo(image).offset(-Constraits.imageSmallRightBottom)
         }
     }
 
