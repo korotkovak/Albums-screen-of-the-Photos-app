@@ -15,7 +15,7 @@ class TableCell: UICollectionViewCell {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 20))
+        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 22))
         label.textColor = .systemBlue
         return label
     }()
@@ -51,7 +51,6 @@ class TableCell: UICollectionViewCell {
 
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
         return view
     }()
 
@@ -123,6 +122,12 @@ class TableCell: UICollectionViewCell {
         descriptionLabel.text = model.description
         self.image.image = UIImage(systemName: model.image ?? "")
         icon.image = UIImage(systemName: model.icon ?? "")
+
+        if model.title == "RAW" || model.title == "Recently Deleted" {
+            separatorView.backgroundColor = .white
+        } else {
+            separatorView.backgroundColor = .lightGray
+        }
     }
 
     override func prepareForReuse() {
