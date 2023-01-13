@@ -15,7 +15,7 @@ class TableCell: UICollectionViewCell {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 22))
+        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 20))
         label.textColor = .systemBlue
         return label
     }()
@@ -81,7 +81,7 @@ class TableCell: UICollectionViewCell {
     private func setupLayout() {
 
         image.snp.makeConstraints { make in
-            make.height.width.equalTo(30)
+            make.height.width.equalTo(26)
             make.centerY.equalTo(contentView)
         }
 
@@ -109,7 +109,7 @@ class TableCell: UICollectionViewCell {
         }
 
         separatorView.snp.makeConstraints { make in
-            make.left.equalTo(contentView).offset(45)
+            make.left.equalTo(contentView).offset(43)
             make.right.equalTo(contentView).offset(10)
             make.bottom.equalTo(contentView)
             make.height.equalTo(0.5)
