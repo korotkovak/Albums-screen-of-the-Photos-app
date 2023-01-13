@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoCell: UICollectionViewCell {
+final class PhotoCell: UICollectionViewCell {
     
     static let identifier = "PhotoCell"
 
@@ -22,6 +22,7 @@ class PhotoCell: UICollectionViewCell {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 16))
+        label.lineBreakMode = .byTruncatingTail
         label.textColor = .gray
         return label
     }()
@@ -36,7 +37,6 @@ class PhotoCell: UICollectionViewCell {
 
     private let icon: UIImageView = {
         let imageView = UIImageView()
-        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .white
         return imageView
@@ -89,6 +89,7 @@ class PhotoCell: UICollectionViewCell {
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.left.equalTo(contentView)
+            make.right.equalTo(contentView)
         }
 
         icon.snp.makeConstraints { make in
@@ -99,8 +100,8 @@ class PhotoCell: UICollectionViewCell {
 
         imageSmall.snp.makeConstraints { make in
             make.height.width.equalTo(35)
-            make.right.equalTo(image).offset(-5)
-            make.bottom.equalTo(image).offset(-5)
+            make.right.equalTo(image).offset(-7)
+            make.bottom.equalTo(image).offset(-7)
         }
     }
 
@@ -127,5 +128,6 @@ class PhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.image.image = nil
+        imageSmall.image = nil
     }
 }

@@ -34,19 +34,19 @@ final class ModelForAlbums {
          Model(title: "Cерфинг", description: "Created by Kristina Korotkova", image: "image0", imageSmall: "image0"),
          Model(title: "Cерфинг", description: "Created by Kristina Korotkova", image: "image0", imageSmall: "image0")
         ],
-//        [Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//         Model(title: "Videos", description: "455", image: "video"),
-//        ],
-//        [Model(title: "Videos", description: "455", icon: "video"),
-//         Model(title: "Videos", image: "video", icon: "lock.fill"),
-//         Model(title: "Videos", image: "video", icon: "lock.fill")
-//        ]
+        [Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", description: "455", image: "video"),
+        ],
+        [Model(title: "Videos", description: "455", image: "video"),
+         Model(title: "Videos", image: "video", icon: "lock.fill"),
+         Model(title: "Videos", image: "video", icon: "lock.fill")
+        ]
     ]
 }
