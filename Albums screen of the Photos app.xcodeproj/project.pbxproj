@@ -12,6 +12,12 @@
 		C11EBC10296FE9670084052F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11EBC0F296FE9670084052F /* Assets.xcassets */; };
 		C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */; };
 		C11EBC21296FEBA40084052F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C11EBC20296FEBA40084052F /* SnapKit */; };
+		C11EBC23296FEF250084052F /* ModelForAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC22296FEF250084052F /* ModelForAlbums.swift */; };
+		C11EBC25297024D60084052F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC24297024D60084052F /* PhotoCell.swift */; };
+		C11EBC27297024EF0084052F /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11EBC26297024EF0084052F /* TableCell.swift */; };
+		C1FA9D8929717D6E00455909 /* AlbumsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9D8829717D6E00455909 /* AlbumsCellHeader.swift */; };
+		C1FA9D8C297199D300455909 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9D8B297199D300455909 /* Colors.swift */; };
+		C1FA9D8E297199DB00455909 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA9D8D297199DB00455909 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,12 @@
 		C11EBC0F296FE9670084052F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C11EBC14296FE9670084052F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsScreenViewController.swift; sourceTree = "<group>"; };
+		C11EBC22296FEF250084052F /* ModelForAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForAlbums.swift; sourceTree = "<group>"; };
+		C11EBC24297024D60084052F /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		C11EBC26297024EF0084052F /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		C1FA9D8829717D6E00455909 /* AlbumsCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCellHeader.swift; sourceTree = "<group>"; };
+		C1FA9D8B297199D300455909 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C1FA9D8D297199DB00455909 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				C11EBC1C296FEA860084052F /* App */,
+				C1FA9D8A297199C500455909 /* Constants */,
+				C11EBC29297025020084052F /* Model */,
+				C11EBC28297024F40084052F /* CustomCell */,
 				C11EBC1D296FEB6E0084052F /* AlbumsScreenViewController.swift */,
 			);
 			path = Sources;
@@ -85,6 +100,33 @@
 				C11EBC08296FE9650084052F /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		C11EBC28297024F40084052F /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC24297024D60084052F /* PhotoCell.swift */,
+				C11EBC26297024EF0084052F /* TableCell.swift */,
+				C1FA9D8829717D6E00455909 /* AlbumsCellHeader.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		C11EBC29297025020084052F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C11EBC22296FEF250084052F /* ModelForAlbums.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1FA9D8A297199C500455909 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA9D8B297199D300455909 /* Colors.swift */,
+				C1FA9D8D297199DB00455909 /* Fonts.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11EBC27297024EF0084052F /* TableCell.swift in Sources */,
+				C1FA9D8C297199D300455909 /* Colors.swift in Sources */,
 				C11EBC07296FE9650084052F /* AppDelegate.swift in Sources */,
+				C11EBC25297024D60084052F /* PhotoCell.swift in Sources */,
 				C11EBC1E296FEB6E0084052F /* AlbumsScreenViewController.swift in Sources */,
 				C11EBC09296FE9650084052F /* SceneDelegate.swift in Sources */,
+				C11EBC23296FEF250084052F /* ModelForAlbums.swift in Sources */,
+				C1FA9D8E297199DB00455909 /* Fonts.swift in Sources */,
+				C1FA9D8929717D6E00455909 /* AlbumsCellHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +347,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,7 +378,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
