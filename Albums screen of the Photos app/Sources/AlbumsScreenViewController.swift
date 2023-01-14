@@ -230,4 +230,10 @@ extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionVi
             return header
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = ModelForAlbums.model[indexPath.section][indexPath.item]
+
+        print("Нажата ячейка - \(model.title)")
+    }
 }
