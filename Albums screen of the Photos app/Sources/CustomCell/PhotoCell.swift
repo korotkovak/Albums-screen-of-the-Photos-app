@@ -12,6 +12,8 @@ fileprivate enum Constants {
     static let error = "ERROR"
     static let imageCornerRadius: CGFloat = 5
     static let imageSmallCornerRadius: CGFloat = 18
+    static let imageSmallLayerborderWidthZero: CGFloat = 0
+    static let imageSmallLayerborderWidthOne: CGFloat = 1
 }
 
 fileprivate enum Constraits {
@@ -136,9 +138,9 @@ final class PhotoCell: UICollectionViewCell {
 
     func configurationBorderImageSmall() {
         if imageSmall.image != nil {
-            imageSmall.layer.borderWidth = 1
+            imageSmall.layer.borderWidth = Constants.imageSmallLayerborderWidthOne
         } else {
-            imageSmall.layer.borderWidth = 0
+            imageSmall.layer.borderWidth = Constants.imageSmallLayerborderWidthZero
         }
     }
 

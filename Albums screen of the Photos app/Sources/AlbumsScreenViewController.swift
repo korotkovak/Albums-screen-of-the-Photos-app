@@ -132,7 +132,6 @@ final class AlbumsScreenViewController: UIViewController {
                     alignment: .top)
 
                 layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-
                 return layoutSection
             case 1:
                 let itemSize = Constraits.itemSizeSectionOne
@@ -154,7 +153,6 @@ final class AlbumsScreenViewController: UIViewController {
                     alignment: .top)
 
                 layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-
                 return layoutSection
             default:
                 let itemSize = Constraits.itemSizeSectionDefault
@@ -174,7 +172,6 @@ final class AlbumsScreenViewController: UIViewController {
                     alignment: .top)
 
                 layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-
                 return layoutSection
             }
         }
@@ -197,11 +194,11 @@ extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionVi
 
         switch indexPath.section {
         case 0, 1:
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as! PhotoCell
+            guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
             item.configuration(model: ModelForAlbums.model[indexPath.section][indexPath.item])
             return item
         default:
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: TableCell.identifier, for: indexPath) as! TableCell
+            guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: TableCell.identifier, for: indexPath) as? TableCell else { return UICollectionViewCell() }
             item.configuration(model: ModelForAlbums.model[indexPath.section][indexPath.item])
             return item
         }
@@ -211,21 +208,37 @@ extension AlbumsScreenViewController: UICollectionViewDataSource, UICollectionVi
 
         switch indexPath.section {
         case 0:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AlbumsCellHeader.identifier,
+                for: indexPath
+            ) as? AlbumsCellHeader else { return UICollectionReusableView() }
             header.titleLabel.text = Constants.headerTitleLabelZero
             header.descriptionLabel.text = Constants.headerDescriptionLabel
             return header
         case 1:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AlbumsCellHeader.identifier,
+                for: indexPath
+            ) as? AlbumsCellHeader else { return UICollectionReusableView() }
             header.titleLabel.text = Constants.headerTitleLabelOne
             header.descriptionLabel.text = Constants.headerDescriptionLabel
             return header
         case 2:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AlbumsCellHeader.identifier,
+                for: indexPath
+            ) as? AlbumsCellHeader else { return UICollectionReusableView() }
             header.titleLabel.text = Constants.headerTitleLabelTwo
             return header
         default:
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlbumsCellHeader.identifier, for: indexPath) as! AlbumsCellHeader
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AlbumsCellHeader.identifier,
+                for: indexPath
+            ) as? AlbumsCellHeader  else { return UICollectionReusableView() }
             header.titleLabel.text = Constants.headerTitleLabelThree
             return header
         }
